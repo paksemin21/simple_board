@@ -11,5 +11,16 @@
 
 	</insert>
  
+ 	<select id="getList" resultType="com.pak.model.BoardVO">
+ 	
+ 	select * from psm_board;
+ 	
+ 	</select>
+ 
+ 	<select id="getPage" resultType="com.pak.model.BoardVO">
+    
+        select * from psm_board where bno = #{bno}
+    
+    </select>
  
   </mapper>

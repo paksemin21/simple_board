@@ -1,5 +1,7 @@
 package com.pak.mapper;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -18,20 +20,39 @@ public class BoardMapperTests {
 	
     private static final Logger log = LoggerFactory.getLogger(BoardMapperTests.class);
     
-    @Autowired
-    private BoardMapper mapper;
-
+	
+	  @Autowired private BoardMapper mapper;
+	 /*
+	 * @Test public void testEnroll() {
+	 * 
+	 * BoardVO vo = new BoardVO();
+	 * 
+	 * vo.setTitle("mapper test"); vo.setContent("mapper test");
+	 * vo.setWriter("mapper test");
+	 * 
+	 * mapper.enroll(vo);
+	 * 
+	 * }
+	 */
+    
+		/*
+		 * @Test public void testGetList() {
+		 * 
+		 * List list = mapper.getList();
+		 * 
+		 * for(Object a : list) { log.info("" + a); }
+		 * 
+		 * }
+		 */
+    
     @Test
-    public void testEnroll() {
+    public void testGetPage() {
         
-        BoardVO vo = new BoardVO();
         
-        vo.setTitle("mapper test");
-        vo.setContent("mapper test");
-        vo.setWriter("mapper test");
+        int bno = 8;
         
-        mapper.enroll(vo);
+        log.info("" + mapper.getPage(bno));
         
-    }	
+    }
 	
 }
