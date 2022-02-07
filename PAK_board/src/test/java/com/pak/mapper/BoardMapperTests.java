@@ -45,14 +45,30 @@ public class BoardMapperTests {
 		 * }
 		 */
     
-    @Test
-    public void testGetPage() {
-        
-        
-        int bno = 8;
-        
-        log.info("" + mapper.getPage(bno));
-        
-    }
-	
+		/*
+		 * @Test public void testGetPage() {
+		 * 
+		 * 
+		 * int bno = 8;
+		 * 
+		 * log.info("" + mapper.getPage(bno));
+		 * 
+		 * }
+		 */
+	  
+		/*
+		 * @Test public void testModify() {
+		 * 
+		 * BoardVO board = new BoardVO(); board.setBno(8); board.setTitle("수정내용");
+		 * board.setContent("수정했습니다.");
+		 * 
+		 * int result = mapper.modify(board); log.info("result = " + result); }
+		 */
+	  
+	  	@Test
+	  		public void testDelete() {
+	  		
+	  		int result = mapper.delete(2);
+	  		log.info("result : " + result);
+	  	}
 }

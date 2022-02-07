@@ -43,16 +43,32 @@ public class BoardServiceTests {
 	 */
 	
 	
+	/*
+	 * @Test public void testGETPage() {
+	 * 
+	 * int bno = 9;
+	 * 
+	 * log.info("" + service.getPage(bno));
+	 * 
+	 * }
+	 */
+	
+	/*
+	 * @Test public void testModify() {
+	 * 
+	 * BoardVO board = new BoardVO(); board.setBno(8); board.setTitle("수정 제목");
+	 * board.setContent("수정 내용");
+	 * 
+	 * int result = service.modify(board); log.info("result : " +result); }
+	 */
+	
 	@Test
-	public void testGETPage() {
+	public void testDelete() {
 		
-		int bno = 9;
-		
-		log.info("" + service.getPage(bno));
+		int result = service.delete(3);
+		log.info("result : " + result);
 		
 	}
-	
-	
 }
 
 

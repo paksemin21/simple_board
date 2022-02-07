@@ -11,4 +11,8 @@ public interface BoardMapper {
 	public List<BoardVO> getList();
 	
 	public BoardVO getPage(int bno);
+	
+	public int modify(BoardVO board);
+	
+	public int delete(int bno);
 }

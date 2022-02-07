@@ -46,6 +46,16 @@ public class BoardController {
 		
 	}
 	
+
+	@GetMapping("/modify")
+	public void boardModifyGET(int bno, Model model) {
+		
+		model.addAttribute("pageInfo", bservice.getPage(bno));
+		
+		
+	}
+	
+	
 	@PostMapping("/enroll")
 	public String boardEnrollPOST(BoardVO board, RedirectAttributes rttr) {
 		
@@ -58,5 +68,27 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
+	
+	@PostMapping("/modify")
+	public String boardModifyPOST(BoardVO board, RedirectAttributes rttr) {
+		
+		bservice.modify(board);
+		
+		rttr.addFlashAttribute("result", "modify success");
+		
+		return "redirect:/board/list";
+		
+	}
+	
+	@PostMapping("/delete")
+	public String boardDeletePOST(int bno, RedirectAttributes rttr) {
+		
+		bservice.delete(bno);
+		
+		rttr.addFlashAttribute("result", "delete success");
+		
+		return "redirect:/board/list";
+		
+	}
 	
 }
