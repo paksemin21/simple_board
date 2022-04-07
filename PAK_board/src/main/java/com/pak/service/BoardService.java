@@ -3,6 +3,7 @@ package com.pak.service;
 import java.util.List;
 
 import com.pak.model.BoardVO;
+import com.pak.model.Criteria;
 
 public interface BoardService {
 
@@ -15,4 +16,8 @@ public interface BoardService {
 	public int modify(BoardVO board);
 	
 	public int delete(int bno);
+	
+	public List<BoardVO> getListPaging(Criteria cri);
+	
+	public int getTotal(Criteria cri);
 }

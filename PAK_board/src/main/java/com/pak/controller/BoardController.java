@@ -12,6 +12,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.pak.model.BoardVO;
 import com.pak.service.BoardService;
+import com.pak.model.Criteria;
+import com.pak.model.PageMakerDTO;
+
 
 @Controller
 @RequestMapping("/board/")
@@ -24,13 +27,22 @@ public class BoardController {
 	
 	
 	@GetMapping("/list")
-	public void boardListGET(Model model) {
+	public void boardListGET(Model model, Criteria cri) {
 		
-		log.info("게시판 진입");
+		log.info("boardListGET");
 		
-		model.addAttribute("list", bservice.getList());
+		model.addAttribute("list", bservice.getListPaging(cri));
 		
-	}
+		
+		  int total = bservice.getTotal(cri);
+		  
+		  PageMakerDTO pageMaker = new PageMakerDTO(cri, total);
+		 
+		  model.addAttribute("pageMaker", pageMaker);
+		 
+		
+		
+ 	}
 	
 	@GetMapping("/enroll")
 	public void boardEnrollGET() {
@@ -40,10 +52,11 @@ public class BoardController {
 	}
 	
 	@GetMapping("/get") 
-	public void boardGetPageGET(int bno, Model model) {
+	public void boardGetPageGET(int bno, Model model, Criteria cri) {
 		
 		model.addAttribute("pageInfo", bservice.getPage(bno));
 		
+		model.addAttribute("cri", cri);
 	}
 	
 

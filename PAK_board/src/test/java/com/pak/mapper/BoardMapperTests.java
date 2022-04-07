@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
 import com.pak.model.BoardVO;
+import com.pak.model.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -23,7 +24,8 @@ public class BoardMapperTests {
 	
 	  @Autowired private BoardMapper mapper;
 	 /*
-	 * @Test public void testEnroll() {
+	 * @Test 
+	 * public void testEnroll() {
 	 * 
 	 * BoardVO vo = new BoardVO();
 	 * 
@@ -36,7 +38,8 @@ public class BoardMapperTests {
 	 */
     
 		/*
-		 * @Test public void testGetList() {
+		 * @Test
+		 * public void testGetList() {
 		 * 
 		 * List list = mapper.getList();
 		 * 
@@ -46,7 +49,8 @@ public class BoardMapperTests {
 		 */
     
 		/*
-		 * @Test public void testGetPage() {
+		 * @Test
+		 * public void testGetPage() {
 		 * 
 		 * 
 		 * int bno = 8;
@@ -57,7 +61,8 @@ public class BoardMapperTests {
 		 */
 	  
 		/*
-		 * @Test public void testModify() {
+		 * @Test
+		 * public void testModify() {
 		 * 
 		 * BoardVO board = new BoardVO(); board.setBno(8); board.setTitle("수정내용");
 		 * board.setContent("수정했습니다.");
@@ -65,10 +70,28 @@ public class BoardMapperTests {
 		 * int result = mapper.modify(board); log.info("result = " + result); }
 		 */
 	  
-	  	@Test
-	  		public void testDelete() {
-	  		
-	  		int result = mapper.delete(2);
-	  		log.info("result : " + result);
-	  	}
+		/*
+		 * @Test
+		 * public void testDelete() {
+		 * 
+		 * int result = mapper.delete(2); log.info("result : " + result); }
+		 */
+	  
+		/*
+		 * @Test
+		 * public void testGetListPaging() {
+		 * 
+		 * 	Criteria cri = new Criteria(); 
+		 * List	list = mapper.getListPaging(cri);
+		 * 	list.forEach(board -> log.info("" + board));
+		 * 
+		 * }
+		 */
+	  
+	  @Test
+	  public void testGetTotal() {
+		  Criteria cri = new Criteria();
+		  log.info("total : " + mapper.getTotal(cri));
+	  }
+	  
 }

@@ -1,5 +1,7 @@
 package com.pak.service;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -10,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.mysql.cj.log.Log;
 import com.pak.model.BoardVO;
+import com.pak.model.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -44,7 +47,8 @@ public class BoardServiceTests {
 	
 	
 	/*
-	 * @Test public void testGETPage() {
+	 * @Test 
+	 * public void testGETPage() {
 	 * 
 	 * int bno = 9;
 	 * 
@@ -54,7 +58,8 @@ public class BoardServiceTests {
 	 */
 	
 	/*
-	 * @Test public void testModify() {
+	 * @Test 
+	 * public void testModify() {
 	 * 
 	 * BoardVO board = new BoardVO(); board.setBno(8); board.setTitle("수정 제목");
 	 * board.setContent("수정 내용");
@@ -62,13 +67,31 @@ public class BoardServiceTests {
 	 * int result = service.modify(board); log.info("result : " +result); }
 	 */
 	
-	@Test
-	public void testDelete() {
-		
-		int result = service.delete(3);
-		log.info("result : " + result);
-		
-	}
+	/*
+	 * @Test 
+	 * public void testDelete() {
+	 * 
+	 * int result = service.delete(3); log.info("result : " + result);
+	 * 
+	 * }
+	 */
+	
+	
+	  @Test public void testGetListPaging() { Criteria cri = new Criteria();
+	  
+	  cri.setPageNum(5);
+	  
+	  List list = service.getListPaging(cri);
+	  
+	  list.forEach(board -> log.info("" + board));
+	  
+	  }
+	 
+	
+	/*
+	 * @Test public void testGetTotal() { log.info(" total : " +
+	 * service.getTotal()); }
+	 */
 }
 
 
